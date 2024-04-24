@@ -14,6 +14,7 @@
 		C645C7D82BC91861000868E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C645C7D72BC91861000868E6 /* Assets.xcassets */; };
 		C645C7DB2BC91861000868E6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C645C7DA2BC91861000868E6 /* Base */; };
 		C645C7E32BC929A8000868E6 /* Rps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C645C7E22BC929A7000868E6 /* Rps.swift */; };
+		C686C8942BD8FC330082217E /* RPSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C8932BD8FC330082217E /* RPSManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C645C7DA2BC91861000868E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C645C7DC2BC91861000868E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C645C7E22BC929A7000868E6 /* Rps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rps.swift; sourceTree = "<group>"; };
+		C686C8932BD8FC330082217E /* RPSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,39 @@
 			children = (
 				C645C7CE2BC9185F000868E6 /* AppDelegate.swift */,
 				C645C7D02BC9185F000868E6 /* SceneDelegate.swift */,
-				C645C7D22BC9185F000868E6 /* ViewController.swift */,
-				C645C7E22BC929A7000868E6 /* Rps.swift */,
-				C645C7D42BC9185F000868E6 /* Main.storyboard */,
+				C686C88D2BD8FA8E0082217E /* Controllers */,
+				C686C88C2BD8FA860082217E /* Views */,
+				C686C88B2BD8FA7C0082217E /* Models */,
 				C645C7D72BC91861000868E6 /* Assets.xcassets */,
 				C645C7D92BC91861000868E6 /* LaunchScreen.storyboard */,
 				C645C7DC2BC91861000868E6 /* Info.plist */,
 			);
 			path = RockSissorsPaper;
+			sourceTree = "<group>";
+		};
+		C686C88B2BD8FA7C0082217E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C645C7E22BC929A7000868E6 /* Rps.swift */,
+				C686C8932BD8FC330082217E /* RPSManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C686C88C2BD8FA860082217E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C645C7D42BC9185F000868E6 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C686C88D2BD8FA8E0082217E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C645C7D22BC9185F000868E6 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +172,7 @@
 				C645C7E32BC929A8000868E6 /* Rps.swift in Sources */,
 				C645C7CF2BC9185F000868E6 /* AppDelegate.swift in Sources */,
 				C645C7D12BC9185F000868E6 /* SceneDelegate.swift in Sources */,
+				C686C8942BD8FC330082217E /* RPSManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
