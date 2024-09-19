@@ -10,26 +10,62 @@ import SwiftUI
 @main
 struct UITutorialApp: App {
     @StateObject private var store = ScrumStore()
-    
+    @State private var errorWrapper: ErrorWrapper?
+    @State private var isLoad = false;
     
     var body: some Scene {
         WindowGroup {
-            ScrumsView(scrums: $store.scrums) {
-                Task {
-                    do {
-                        try await store.save(scrums: store.scrums)
-                    } catch {
-                        fatalError(error.localizedDescription)
+            if isLoad {
+                ScrumsView(
+                    scrums: $store.scrums
+                ) {
+                    Task {
+                        do {
+                            try await store.save(
+                                scrums: store.scrums
+                            )
+                            print(
+                                "DEBUG: Scrums saved successfully"
+                            )
+                        } catch {
+                            errorWrapper = ErrorWrapper(
+                                error: error,
+                                guidance: "Try again later."
+                            )
+                        }
                     }
                 }
-            }
-            .task {
-                do {
-                    try await store.load()
-                } catch {
-                    fatalError(error.localizedDescription)
+            } else {
+                ProgressView(
+                    "Loading..."
+                )
+                .task {
+                    do {
+                        try await store.load()
+                        print(
+                            "DEBUG: Store loaded successfully"
+                        )
+                        isLoad = true;
+                    } catch {
+                        errorWrapper = ErrorWrapper(
+                            error: error,
+                            guidance: "Scrumdinger will load sample data and continue."
+                        )
+                    }
+                }
+                .sheet(
+                    item: $errorWrapper
+                ) {
+                    store.scrums = DailyScrum.sampleData
+                    isLoad = true;
+                } content: { wrapper in
+                    ErrorView(
+                        errorWrapper: wrapper
+                    )
                 }
             }
         }
     }
 }
+
+

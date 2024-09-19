@@ -8,7 +8,7 @@
 import Foundation
 
 class ScrumStore : ObservableObject {
-    @Published var scrums: [DailyScrum] = []
+    var scrums: [DailyScrum] = []
     
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
